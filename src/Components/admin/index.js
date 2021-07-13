@@ -25,6 +25,7 @@ class Admin extends React.Component {
     socket.on('connect', () => {
       //1a
       socket.emit('join', { name: staffName });
+      socket.emit('getAll');
       socket.on('newConsultation', (payload) => {
         this.setState({ consultations: [...this.state.consultations, payload] });
       });
