@@ -16,7 +16,7 @@ class Home extends React.Component {
   componentDidMount() {
     let patientName;
     while(!patientName){
-      patientName = prompt("What is your full name?");
+      patientName = prompt("Please Enter Patient's Full Name");
     }
     this.setState({ patientName });
     socket.on('connect', () => {

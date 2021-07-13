@@ -20,7 +20,7 @@ class Admin extends React.Component {
   }
   componentDidMount() {
     // run once when component is mounted
-    const staffName = prompt("What is your name?");
+    const staffName = prompt("Please Enter Doctor's Name");
     this.setState({ staffName });
     socket.on('connect', () => {
       //1a
