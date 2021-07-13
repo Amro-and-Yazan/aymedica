@@ -1,0 +1,24 @@
+#modal {
+  padding: 15px;
+  background-color: whitesmoke;
+  border: solid grey 1pt;
+  border-radius: 10px;
+}
+
+#button2 {
+  margin-top: 10px;
+  margin-left: 35%;
+  width: 130px;
+}
+
+.labelz {
+  font-weight: bold;
+}
+
+#middle {
+  text-align: center;
+}
+
+.textz {
+  margin-left: 10px;
+}

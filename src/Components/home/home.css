@@ -33,5 +33,22 @@
 
 .form {
   width: 60%;
+  margin-left: 400px;
+  border: solid 2pt rgb(100, 99, 99);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+  background-color: lightsteelblue;
 
+}
+
+.button1 {
+  margin-top: 20px;
+  width: 150px;
+  margin-left: 42%
+}
+
+.bolderLabel {
+  font-weight: bold;
 }

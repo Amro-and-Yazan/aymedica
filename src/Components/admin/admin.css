@@ -17,15 +17,26 @@ main {
   text-align: center;
   width: 30vw;
 }
+
+#avDoc {
+  margin-bottom: 30px;
+}
+
+#consults {
+  margin-left: 530px;
+  margin-bottom: 30px;
+}
+
 .ticket {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: lightsteelblue;
+  border-radius: 10px;
 }
 
 article button {
-  background-color: deepskyblue;
+  background-color: darkslateblue;
   color: white;
   padding: 10px;
   width: 100px;
