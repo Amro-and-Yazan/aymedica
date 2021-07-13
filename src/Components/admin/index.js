@@ -19,19 +19,31 @@ class Admin extends React.Component {
     };
   }
   componentDidMount() {
-    // run once when component is mounted
-    const staffName = prompt("Please Enter Doctor's Name");
+
+    const staffName = prompt("Please Enter Your Username");
     this.setState({ staffName });
     socket.on('connect', () => {
-      //1a
-      socket.emit('join', { name: staffName });
+
+      socket.emit('join', { docName: staffName });
+      socket.on('notFound', (payload) =>{
+        console.log('Hello', payload);
+        alert(`${payload.Error}`);
+      })
       socket.emit('getAll');
       socket.on('newConsultation', (payload) => {
         this.setState({ consultations: [...this.state.consultations, payload] });
       });
-      socket.on('onlineStaff', (payload) => {
-        this.setState({ onlineStaff: [...this.state.onlineStaff, payload] });
+      socket.on('onlineStaff',async (payload) => {
+        // console.log(payload);
+        await this.setState({ onlineStaff: [...this.state.onlineStaff, payload] });
+        // console.log(this.state);
       });
+      socket.on('closed', (payload)=>{
+        // console.log('hello',payload);
+        this.setState({
+          consultations: this.state.consultations.filter((cons) => cons.id !== payload),
+        });
+      })
       socket.on('offlineStaff', (payload) => {
         this.setState({
           onlineStaff: this.state.onlineStaff.filter((staff) => staff.id !== payload.id),
@@ -50,7 +62,8 @@ class Admin extends React.Component {
       prescription:this.state.prescription });
 
     this.setState({
-      showModal:false
+      showModal:false,
+      consultations: this.state.consultations.filter((cons) => cons.id !== this.state.id)
     })
   };
 
@@ -81,7 +94,7 @@ class Admin extends React.Component {
     return (
       <main className="admin-container1">
         <section id="container">
-          <h2>Opened Consults</h2>
+          <h2>Pending Consults</h2>
           <section id="tickets">
             {this.state.consultations.map((consultation) => {
               return (<>
@@ -100,7 +113,7 @@ class Admin extends React.Component {
         <aside id="online-staff">
           <h2>Available Doctors</h2>
           {this.state.onlineStaff.map((staff) => (
-            <h2 key={staff.id}>{staff.name}</h2>
+            <h2 key={staff.id}>{staff.docName}</h2>
           ))}
         </aside>
       </main>

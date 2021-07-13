@@ -50,9 +50,7 @@ class Home extends React.Component {
       created_at: Date.now(),
     };
     console.log('Consult', payload);
-    // once the user submit the form we need to emit a ticket so all TAs can see that ticket
-
-    // 1
+    
     socket.emit('createConsultation', payload);
   };
 

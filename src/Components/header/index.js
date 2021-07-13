@@ -3,19 +3,6 @@ import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 function Header() {
   return (
-    // <header>
-    //   <nav>
-    //     <ul>
-    //       <li>AYMedica</li>
-    //       <li>
-    //         <Link to="/">Home</Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/admin">Admin</Link>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    // </header>
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">AYMedica</Navbar.Brand>
