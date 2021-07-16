@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../home';
-import Admin from '../admin';
+import Admin from '../admin/index.js';
 import './home.css';
 
 function Main() {
