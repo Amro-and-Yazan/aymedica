@@ -22,3 +22,9 @@ This is a website dedicated to help patients and doctors connect with each other
 ## Technologies Used
 
 React, Socket.io, Netlify, Heroku, MongoDB and MongoAtlas.
+
+## Links
+
+- Heroku Link: https://ay-medica.herokuapp.com/
+
+- Deployed Link: https://aymedica.netlify.app/
