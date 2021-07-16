@@ -4,7 +4,8 @@ import ModalForm from './modal.js';
 import ListGroup from 'react-bootstrap/ListGroup';
 import './admin.css';
 import io from 'socket.io-client';
-const socket = io('localhost:5000/', { transports: ['websocket'] });
+const SERVER_URL = process.env.SERVER_URL || 'https://ay-medica.herokuapp.com/';
+const socket = io(SERVER_URL, { transports: ['websocket'] });
 class Admin extends React.Component {
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@ import React from 'react';
 import './home.css';
 import io from 'socket.io-client';
 import { Form, Col, Button } from 'react-bootstrap';
-const SERVER_URL = process.env.SERVER_URL || 'localhost:5000/';
+const SERVER_URL = process.env.SERVER_URL || 'https://ay-medica.herokuapp.com/';
 const socket = io(SERVER_URL, { transports: ['websocket'] });
 
 class Home extends React.Component {
