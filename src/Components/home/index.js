@@ -2,8 +2,11 @@ import React from 'react';
 import './home.css';
 import io from 'socket.io-client';
 import { Form, Col, Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 const SERVER_URL = process.env.SERVER_URL || 'https://ay-medica.herokuapp.com/';
 const socket = io(SERVER_URL, { transports: ['websocket'] });
+const MySwal = withReactContent(Swal)
 
 class Home extends React.Component {
   constructor(props) {
@@ -21,7 +24,18 @@ class Home extends React.Component {
     this.setState({ patientName });
     socket.on('connect', () => {
       socket.on('diagnosed', function (payload) {
-        alert(`Dr. ${payload.docName} diagnosed your case as follows: (${payload.diagnosis}) and prescribed (${payload.prescription})`);
+        MySwal.fire({
+          title: <p>Hello World</p>,
+          footer: 'Copyright 2018',
+          didOpen: () => {
+            // `MySwal` is a subclass of `Swal`
+            //   with all the same instance & static methods
+            MySwal.clickConfirm()
+          }
+        }).then(() => {
+          return MySwal.fire(`Dr. ${payload.docName} diagnosed your case as follows: '${payload.diagnosis}' and prescribed '${payload.prescription}'`)
+        })
+        // alert(`Dr. ${payload.docName} diagnosed your case as follows: '${payload.diagnosis}' and prescribed '${payload.prescription}'`);
       });
     });
   }

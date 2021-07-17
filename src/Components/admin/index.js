@@ -27,10 +27,10 @@ class Admin extends React.Component {
     socket.on('connect', () => {
 
       socket.emit('join', { docName: staffName });
-      socket.on('notFound', (payload) =>{
+      socket.on('notFound', (payload) => {
         // console.log('Hello', payload);
-       const userName = prompt(`${payload.Error}`);
-      
+        const userName = prompt(`${payload.Error}`);
+
         socket.emit('join', { docName: userName });
       })
       socket.emit('getAll');
@@ -107,7 +107,12 @@ class Admin extends React.Component {
                 {this.state.showModal &&
                   <ModalForm info={this.state.consultations.find(element => {
                     return element.id == this.state.id;
-                  })} showModal={this.state.showModal} closeModal={this.handleClose} handleClaim={this.handleClaim} handleDiagnosisChange={this.handleDiagnosisChange} handlePrescriptionChange={this.handlePrescriptionChange} />
+                  })}
+                    showModal={this.state.showModal}
+                    closeModal={this.handleClose}
+                    handleClaim={this.handleClaim}
+                    handleDiagnosisChange={this.handleDiagnosisChange}
+                    handlePrescriptionChange={this.handlePrescriptionChange} />
                 }
               </>
               );
